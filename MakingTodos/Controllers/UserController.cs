@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MakingTodos.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private DataContext _context;
@@ -13,6 +16,7 @@ namespace MakingTodos.Controllers
             _context = context;
         }
 
+    
         [HttpGet]
         public async Task<ActionResult<List<User>>> Get()
         {
@@ -47,6 +51,7 @@ namespace MakingTodos.Controllers
             dbUser.Name = request.Name;
             dbUser.LastName = request.LastName;
             dbUser.Email = request.Email;
+            dbUser.Password = request.Password;
             dbUser.Age = request.Age;
             dbUser.Professition = request.Professition;
 

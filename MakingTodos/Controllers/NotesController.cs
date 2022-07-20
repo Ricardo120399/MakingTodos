@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MakingTodos.Controllers
@@ -13,6 +14,7 @@ namespace MakingTodos.Controllers
             _context = context;
         }
 
+        
         [HttpGet]
         public async Task<ActionResult<List<Notes>>> Get()
         {
